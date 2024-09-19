@@ -1,11 +1,24 @@
-
 public class Feeder {
+    public String toString()
+    {
+        return "Current Food: " + currentFood;
+    }
 
+    public Feeder() {}
+    public Feeder(int c)
+    {
+        currentFood = c;
+
+    }
     /**
      * The amount of food, in grams, currently in the bird feeder; initialized
      * in the constructor and always greater than or equal to zero
      */
     private int currentFood;
+    public int getCurrentFood()
+    {
+        return currentFood;
+    }
 
     /**
      * Simulates one day with numBirds birds or possibly a bear at the bird
@@ -13,6 +26,14 @@ public class Feeder {
      */
     public void simulateOneDay(int numBirds)
     {
+        if(Math.random() < 0.05) currentFood = 0;
+        else
+        {
+            int eaten = (int)(Math.random() * 41) + 10;
+            currentFood -= eaten * numBirds;
+            if(currentFood < 0) currentFood = 0;
+        }
+
     }
 
     /**
@@ -20,8 +41,11 @@ public class Feeder {
      * feeder in this simulation, as described in part (b) Preconditions:
      * numBirds > 0, numDays > 0
      */
-    public int simulateManyDays(int numBirds, int numDays) 
+    public int simulateManyDays(int numBirds, int numDays)
     {
+        int days = 0;
+
+
         return 0;
     }
 
